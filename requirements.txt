@@ -1,0 +1,6 @@
+numpy
+transformers
+sentencepiece
+jieba
+flask
+flask-cors
