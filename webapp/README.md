@@ -2,9 +2,9 @@
 
 
 ## Install NODE.js and npu
-```
+
 [more info](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)
-```
+
 
 
 ## Install python requirements
