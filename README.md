@@ -13,7 +13,7 @@ mPanGu-α-53 Come from Pengcheng·PanGu-α,Based on the multi-language translati
 
 At present, there are two versions of GPU/NPU because MindSpore versions are different. The mainstream version of MindSpore supported by 'Pengcheng Yunnao 2' NPU is 1.3 at present, and the MS1.6 version of GPU platform has better adaptability
 
-More info about original project mPanGu-Alpha-53 [here]( https://git.openi.org.cn/PCL-Platform.Intelligence/mPanGu-Alpha-53)
+More info about original project mPanGu-Alpha-53 [here]( https://openi.pcl.ac.cn/PCL-Platform.Intelligence/mPanGu-Alpha-53/src/branch/master/README-en.md)
 
 
 
