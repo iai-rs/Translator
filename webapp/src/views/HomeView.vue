@@ -5,7 +5,7 @@
   </div>
     <translation-form></translation-form>
     <div class="container">
-      This is demo of project. More info  <a href="https://github.com/iai-rs/Translator">here</a>
+      This is a demo of a project. More info  <a href="https://github.com/iai-rs/Translator">here</a>
   </div>
 
 </template>

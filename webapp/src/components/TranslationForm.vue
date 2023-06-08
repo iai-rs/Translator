@@ -5,7 +5,7 @@
         <select @click="change_input_lang" v-model="input_lang">
           <option value="sr">Serbian</option>
           <option value="en">English</option>
-          <option value="zh">Chinise</option>
+          <option value="zh">Chinese</option>
           <option value="es">Spanish</option>
           <option value="de">German</option>
           <option value="fr">French</option>
@@ -27,7 +27,7 @@
         <select @click="change_output_lang" v-model="output_lang">
           <option value="sr">Serbian</option>
           <option value="en">English</option>
-          <option value="zh">Chinise</option>
+          <option value="zh">Chinese</option>
           <option value="es">Spanish</option>
           <option value="de">German</option>
           <option value="fr">French</option>

@@ -1,23 +1,33 @@
 # web-app
 
+
+## Install NODE.js and npu
+```
+[more info](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)
+```
+
+
+## Install python requirements
+```
+pip install -r requirements.txt
+```
+
 ## Project setup
 ```
 npm install
 ```
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
+## Compiles for production
 ```
 npm run build
 ```
 
-### Lints and fixes files
+## Run app.py
 ```
-npm run lint
+export DEVICE_ID=1
+python3 python app.py
 ```
+
+
 
 

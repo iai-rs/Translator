@@ -2,10 +2,10 @@ from flask import Flask, render_template, request, jsonify
 import time
 import sys
 import os
-# sys.path.append(os.path.abspath('../..'))
-# from predict import load_model, run_predict
-# from src.utils import get_args
-# from src.pangu_alpha_config import set_parse
+sys.path.append(os.path.abspath('../..'))
+from predict import load_model, run_predict
+from src.utils import get_args
+from src.pangu_alpha_config import set_parse
 
 from flask_cors import CORS
 
@@ -43,10 +43,9 @@ def translate():
         input_lang = request.json['input_lang']
         output_lang = request.json['output_lang']
 
-        # opt = get_args(True)
-        # set_parse(opt)
-        # output_text = run_predict(model_predict, config, opt, input_lang, output_lang, input_text)
-        output_text=input_text+' | '+input_lang+' | '+input_lang
+        opt = get_args(True)
+        set_parse(opt)
+        output_text = run_predict(model_predict, config, opt, input_lang, output_lang, input_text)
         response_data = {'message': output_text}
         return jsonify(response_data)
     except Exception as s:
@@ -56,18 +55,17 @@ def translate():
 def main():
     global model_predict
     global config
-    # opt = get_args(True)
-    # set_parse(opt)
-    # model_predict, config = load_model(opt)
+    opt = get_args(True)
+    set_parse(opt)
+    model_predict, config = load_model(opt)
     print("Model loaded")
-    # prediction = run_predict(model_predict, config, opt, 'en', 'sr', "test")
+    prediction = run_predict(model_predict, config, opt, 'en', 'sr', "test")
     print("Initialized")
 
     print("Server stararted. Port 52628")
     from waitress import serve
     serve(app, host="0.0.0.0", port=52628)
     #app.run(debug=True)
-
 
 if __name__ == '__main__':
     main()
