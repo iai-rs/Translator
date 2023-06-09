@@ -41,13 +41,19 @@
         </select>
       </div>
     </div>
+   
     <div class="textareas-container">
-      <textarea v-model="input_text" placeholder="Enter text"></textarea>
+      <textarea v-model="input_text" placeholder="Enter text" v-on:input="check"></textarea>
+      <p class="help is-danger">{{instruction}}</p>
       <textarea v-model="output_text" placeholder="Translated text" disabled></textarea>
+      <div v-if="loading">
+        <!-- Loading animation -->
+        <div class="loading-spinner"></div>
+      </div>
     </div>
 
     <div class="button-container">
-      <button @click="translate" id="btnTranslate">Translate</button>
+      <button @click="translate" id="btnTranslate" :hidden="loading">Translate</button>
     </div>
   </div>
 </template>
@@ -56,14 +62,23 @@
 export default {
   data() {
     return {
+      loading: false,
       input_text: '',
       output_lang: 'en',
       input_lang: 'sr',
-      output_text: ''
+      output_text: '',
+      limit: 1000,
     };
+  },
+  computed: {
+    instruction() {  
+        return this.limit-this.input_text.length==0?
+          'limit is '+this.limit+' characters':'';      
+    }
   },
   methods: {
     translate() {
+      this.loading = true;
       fetch(process.env.VUE_APP_API_ENDPOINT+'/translate', {
         method: 'POST',
         headers: {
@@ -76,6 +91,7 @@ export default {
         })
       })
         .then(response => {
+          this.loading = false;
           if (response.status === 500) {
             throw response;
           } else if (response.status !== 200) {
@@ -84,9 +100,11 @@ export default {
           return response.json();
         })
         .then(data => {
+          this.loading = false;
           this.output_text = data.message
         })
         .catch(error => {
+          this.loading = false;
           if (typeof error.then === 'function') {
             error.then(error => {
               this.$swal(error.error);
@@ -111,6 +129,9 @@ export default {
     },
     change_output_lang() {
 
+    },
+    check() {
+      this.input_text = this.input_text.substring(0, this.limit)
     }
   }
 };
