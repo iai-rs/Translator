@@ -1,0 +1,31 @@
+Base URL: http://147.91.175.237:52628
+
+
+REST service for tranlation
+/api/translate
+
+Request example:
+    POST /api/translate HTTP/1.1
+    Host: 147.91.175.237:52628
+    Accept: application/json
+    Content-Type: application/json
+    Content-Length: 70
+
+    {
+    "input_text": "hello",
+    "output_lang": "en",
+    "input_lang": "sr"
+    }
+
+    Note:
+        parameter input_text is limited to 1000 characters
+        output_lang and input_lang must be from group of supported languages langs = ['vi', 'ko', 'en', 'nl', 'de', 'ms', 'id', 'tl', 'mn', 'my', 'th', 'lo', 'km', 'lt', 'et', 'lv', 'hu', 'pl', 'cs', 'sk', 
+                    'sl', 'hr', 'bs', 'sr','bg', 'mk', 'ru', 'uk', 'be', 'el', 'ka', 'hy', 'ro', 'fr', 'es', 'pt','fa', 'he', 'ar', 'ps', 'tr', 'kk', 'uz', 'az', 'hi', 'ta', 'ur', 'bn', 'ne', 'zh']
+
+
+Response example:
+    {
+        "message": "Hi there"
+    }
+
+

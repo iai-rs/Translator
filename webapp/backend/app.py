@@ -11,6 +11,20 @@ from predict import load_model, run_predict
 from src.utils import get_args
 from src.pangu_alpha_config import set_parse
 
+langs = ['vi', 'ko', 'en', 'nl', 
+                'de', 'ms', 'id', 'tl', 
+                'mn', 'my', 'th', 'lo', 
+                'km', 'lt', 'et', 'lv', 
+                'hu', 'pl', 'cs', 'sk', 
+                'sl', 'hr', 'bs', 'sr',
+                'bg', 'mk', 'ru', 'uk', 
+                'be', 'el', 'ka', 'hy', 
+                'ro', 'fr', 'es', 'pt',
+                'fa', 'he', 'ar', 'ps', 
+                'tr', 'kk', 'uz', 
+                'az', 'hi', 'ta', 
+                'ur', 'bn', 'ne', 'zh']
+
 
 app = Flask(__name__, static_folder='../dist')
 CORS(app, resources={r"/*": {"origins": "http://147.91.175.237:52628"}})
@@ -50,8 +64,17 @@ def translate():
             error_message = {'error': 'Missing required filed "output_lang"'}
             return jsonify(error_message), 412
         input_text = request.json['input_text']
+        if len(input_text)>1000:
+            error_message = {'error': 'Input text is limited to 1000 characters'}
+            return jsonify(error_message), 412
         input_lang = request.json['input_lang']
+        if input_lang not in langs:
+            error_message = {'error': 'Invalid input language'}
+            return jsonify(error_message), 412
         output_lang = request.json['output_lang']
+        if output_lang not in langs:
+            error_message = {'error': 'Invalid output language'}
+            return jsonify(error_message), 412
 
         opt = get_args(True)
         set_parse(opt)

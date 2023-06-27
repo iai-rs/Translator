@@ -12,7 +12,7 @@
           <option value="el">Greek</option>
           <option value="he">Hebrew</option>
           <option value="hr">Croatian</option>
-          <option value="bs">Bosinian</option>
+          <option value="bs">Bosnian</option>
           <option value="sl">Slovenian</option>
           <option value="mk">Macedonian</option>
           <option value="hu">Hungarian</option>
@@ -34,7 +34,7 @@
           <option value="el">Greek</option>
           <option value="he">Hebrew</option>
           <option value="hr">Croatian</option>
-          <option value="bs">Bosinian</option>
+          <option value="bs">Bosnian</option>
           <option value="sl">Slovenian</option>
           <option value="mk">Macedonian</option>
           <option value="hu">Hungarian</option>
