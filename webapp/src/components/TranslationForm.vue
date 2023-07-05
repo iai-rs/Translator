@@ -67,7 +67,7 @@ export default {
       output_lang: 'en',
       input_lang: 'sr',
       output_text: '',
-      limit: 1000,
+      limit: 5000,
     };
   },
   computed: {

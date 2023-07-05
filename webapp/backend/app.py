@@ -64,7 +64,7 @@ def translate():
             error_message = {'error': 'Missing required filed "output_lang"'}
             return jsonify(error_message), 412
         input_text = request.json['input_text']
-        if len(input_text)>1000:
+        if len(input_text)>5000:
             error_message = {'error': 'Input text is limited to 1000 characters'}
             return jsonify(error_message), 412
         input_lang = request.json['input_lang']
@@ -85,7 +85,7 @@ def translate():
         try:
             info=getInfo(request.remote_addr)
             with open("/home/kamenko/log/log.txt", 'a') as file:
-                file.write(str(datetime.datetime.now().replace(microsecond=0))+'|' + request.remote_addr +'|'+ info["country_name"] +'|'+ info["city"] +'|' + input_text +'|' + input_lang +'|' + output_text+'|' + output_lang+'\n')
+                file.write(str(datetime.datetime.now().replace(microsecond=0))+'|' + request.remote_addr +'|'+ info["country_name"] +'|'+ info["city"] +'|' + input_text.replace("\n", "") +'|' + input_lang +'|' + output_text.replace("\n", "")+'|' + output_lang+'\n')
         except Exception as e:
             pass
         return jsonify(response_data)

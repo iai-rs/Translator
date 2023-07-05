@@ -18,7 +18,7 @@ Request example:
     }
 
     Note:
-        parameter input_text is limited to 1000 characters
+        parameter input_text is limited to 5000 characters
         output_lang and input_lang must be from group of supported languages langs = ['vi', 'ko', 'en', 'nl', 'de', 'ms', 'id', 'tl', 'mn', 'my', 'th', 'lo', 'km', 'lt', 'et', 'lv', 'hu', 'pl', 'cs', 'sk', 
                     'sl', 'hr', 'bs', 'sr','bg', 'mk', 'ru', 'uk', 'be', 'el', 'ka', 'hy', 'ro', 'fr', 'es', 'pt','fa', 'he', 'ar', 'ps', 'tr', 'kk', 'uz', 'az', 'hi', 'ta', 'ur', 'bn', 'ne', 'zh']
 
