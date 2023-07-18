@@ -53,7 +53,11 @@ def translate():
     global config
 
     try:
-        data = request.get_json()
+        try:
+            data = request.get_json()
+        except:
+            error_message = {'error': 'Content-type error'}
+            return jsonify(error_message), 412
         if 'input_text' not in data:
             error_message = {'error': 'Missing required filed "input_text"'}
             return jsonify(error_message), 412

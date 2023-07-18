@@ -12,7 +12,7 @@ Request example:
     Content-Length: 70
 
     {
-    "input_text": "hello",
+    "input_text": "Pozdrav",
     "output_lang": "en",
     "input_lang": "sr"
     }
@@ -25,7 +25,7 @@ Request example:
 
 Response example:
     {
-        "message": "Hi there"
+        "message": "The Window"
     }
 
 
